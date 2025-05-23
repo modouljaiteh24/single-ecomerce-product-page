@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./src/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <script type="module" src="./src/main.ts" async></script>
+
+    <title>Vite + TS</title>
+  </head>
+  <body class="md:container md:m-auto md:p-6">
+    <div>
+      <header>
+        <div class="md:flex items-center justify-between px-6 py-4 relative">
+          <!-- Left Side: Logo + Nav -->
+          <div class="md:flex items-center gap-[3rem]">
+            <div class="flex justify-between items-center">
+              <div class="flex items-center gap-4">
+                <div class="md:hidden">
+                  <img src="./public/assets/images/icon-menu.svg" alt="" />
+                </div>
+                <div>
+                  <img
+                    src="./public/assets/images/logo.svg"
+                    alt="Logo"
+                    class="w-32"
+                  />
+                </div>
+              </div>
+
+              <!-- Phone Right Side: Cart Icon -->
+              <div class="block md:hidden">
+                <div class="flex items-center gap-8">
+                  <div class="relative">
+                    <div
+                      class="absolute -top-3 left-4 w-5 h-5 bg-orange-500 flex justify-center items-center rounded-full text-white"
+                    >
+                      <span class="quantity">3</span>
+                    </div>
+                    <div class="cursor-pointer w-[]">
+                      <img
+                        width=""
+                        src="./public/assets/images/icon-cart.svg"
+                        alt="Cart"
+                        class="w-6"
+                      />
+                    </div>
+                  </div>
+                  <div class="cursor-pointer">
+                    <img
+                      class="hover:border-1 hover:border-orange-500 rounded-full"
+                      width="35"
+                      src="./public/assets/images/image-avatar.png"
+                      alt=""
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Logo -->
+
+            <!-- Navigation Links -->
+            <nav>
+              <ul class="md:flex gap-6 text-gray-500">
+                <li class="">
+                  <a href="#">Collections</a>
+                </li>
+                <li><a href="#">Mens</a></li>
+                <li><a href="#">Women</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+              </ul>
+            </nav>
+          </div>
+
+          <!-- Right Side: Cart Icon -->
+          <div class="hidden md:block">
+            <div class="flex items-center gap-10">
+              <div class="relative">
+                <div
+                  class="absolute -top-3 left-4 w-5 h-5 bg-orange-500 flex justify-center items-center rounded-full text-white"
+                >
+                  <span class="quantity">1</span>
+                </div>
+                <div id="cart-image" class="cursor-pointer w-[]">
+                  <img
+                    id=""
+                    draggable="false"
+                    width=""
+                    src="./public/assets/images/icon-cart.svg"
+                    alt="Cart"
+                    class="w-6"
+                  />
+                </div>
+              </div>
+              <div
+                id="cart-content"
+                class="show cart-contentmax-h-96 overflow-y-auto absolute right-3 top-[5rem] z-10 p-4 bg-white md:w-[30%] h-[15rem] w-[100%] shadow-lg rounded-2xl menu-content transition-all transition-discrete"
+              >
+                <div>
+                  <h3>Cart</h3>
+                </div>
+                <div class="mt-[1rem]">
+                  <div class="border-1 border-gray-200"></div>
+                  <div class="text-center pt-[4rem] item-cart-content">
+                    <p class="text-gray-400">Your cart is empty.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="cursor-pointer">
+                <img
+                  draggable="false"
+                  class="hover:border-1 hover:border-orange-500 rounded-full"
+                  width="35"
+                  src="./public/assets/images/image-avatar.png"
+                  alt=""
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="px-6 mt-[1.5rem]">
+          <div class="border-b-1 border-gray-300"></div>
+        </div>
+      </header>
+
+      <main>
+        <section class="mt-[5rem] md:px-[6rem] relative">
+          <div class="md:grid md:grid-cols-2 md:gap-[3rem]">
+            <div class="item">
+              <div class="w-[100%] flex justify-center">
+                <img
+                  draggable="false"
+                  id="main-image"
+                  class="main-image md:w-[90%] h-[] md:rounded-2xl"
+                  src="./public/assets/images/image-product-1.jpg"
+                  alt=""
+                />
+              </div>
+
+              <div id="" class="flex w-[18%] gap-6 ml-8 mt-6">
+                <img
+                  draggable="false"
+                  id="image-product-1"
+                  class="rounded-2xl hover:border-2 hover:border-orange-500 hover:grayscale-50"
+                  src="./public/assets/images/image-product-1.jpg"
+                  alt=""
+                />
+                <img
+                  draggable="false"
+                  id="image-product-2"
+                  class="rounded-2xl hover:border-2 hover:border-orange-500 hover:grayscale-50"
+                  src="./public/assets/images/image-product-2.jpg"
+                  alt=""
+                />
+                <img
+                  draggable="false"
+                  id="image-product-3"
+                  class="rounded-2xl hover:border-2 hover:border-orange-500 hover:grayscale-50"
+                  src="./public/assets/images/image-product-3.jpg"
+                  alt=""
+                />
+                <img
+                  draggable="false"
+                  id="image-product-4"
+                  class="rounded-2xl hover:border-2 hover:border-orange-500 hover:grayscale-50"
+                  src="./public/assets/images/image-product-4.jpg"
+                  alt=""
+                />
+              </div>
+            </div>
+
+            <!--  -->
+            <div class="absolute hidden left-[30rem]">
+              <div class="w-[60%] flex justify-center select-none">
+                <img
+                  draggable="false"
+                  id="main-image"
+                  class="item-image md:w-[100%] h-[] md:rounded-2xl"
+                  src="./public/assets/images/image-product-1.jpg"
+                  alt=""
+                />
+              </div>
+
+              <div id="" class="flex w-[8%] gap-6 ml-8 mt-6">
+                <img
+                  draggable="false"
+                  id="image-product-1"
+                  class="thumbnail rounded-2xl hover:border-2 hover:border-orange-500 hover:grayscale-50"
+                  src="./public/assets/images/image-product-1.jpg"
+                  alt=""
+                />
+                <img
+                  draggable="false"
+                  id="image-product-2"
+                  class="thumbnail rounded-2xl hover:border-2 hover:border-orange-500 hover:grayscale-50"
+                  src="./public/assets/images/image-product-2.jpg"
+                  alt=""
+                />
+                <img
+                  draggable="false"
+                  id="image-product-3"
+                  class="thumbnail rounded-2xl hover:border-2 hover:border-orange-500 hover:grayscale-50"
+                  src="./public/assets/images/image-product-3.jpg"
+                  alt=""
+                />
+                <img
+                  draggable="false"
+                  id="image-product-4"
+                  class="thumbnail rounded-2xl hover:border-2 hover:border-orange-500 hover:grayscale-50"
+                  src="./public/assets/images/image-product-4.jpg"
+                  alt=""
+                />
+              </div>
+            </div>
+            <!--  -->
+            <div class="item w-[100%] mt-[3rem] p-6">
+              <p class="uppercase text-gray-500">Sneaker Company</p>
+              <h2 class="item-title mt-[10px] text-[2.5rem] leading-12">
+                Fall Limited Edition <br />
+                Sneakers
+              </h2>
+              <p class="mt-[2rem] w-[90%] text-gray-500">
+                These low-profile sneakers are your perfect casual wear
+                companion. Featuring a durable rubber outer sole, they’ll
+                withstand everything the weather can offer.
+              </p>
+              <div class="mt-[1.5rem]">
+                <div class="flex items-center gap-[1rem]">
+                  <p class="sell-price item-price text-2xl">&dollar;125.00</p>
+                  <p class="bg-black text-white rounded-[5px] px-2">50%</p>
+                </div>
+                <div>
+                  <p class="regular-price line-through mt-2 text-gray-500">
+                    &dollar;250.00
+                  </p>
+                </div>
+                <div class="mt-[2rem] md:flex gap-x-[2rem] items-center">
+                  <!-- product qty -->
+                  <div
+                    class="flex space-x-10 bg-gray-100 p-4 rounded-[10px] w-[] font-bold"
+                  >
+                    <button class="text-orange-500 minusButton">
+                      <img
+                        draggable="false"
+                        src="./public/assets/images/icon-minus.svg"
+                        alt=""
+                      />
+                    </button>
+                    <div class="quantity-count">1</div>
+                    <button class="text-orange-500 plusButton">
+                      <img
+                        draggable="false"
+                        src="./public/assets/images/icon-plus.svg"
+                        alt=""
+                      />
+                    </button>
+                  </div>
+                  <div
+                    class="flex gap-3 bg-orange-500 hover:bg-orange-400 px-[4rem] p-4 rounded-[10px]"
+                  >
+                    <img
+                      draggable="false"
+                      src="./public/assets/images/icon-cart.svg"
+                      alt=""
+                    />
+                    <button class="text-gray-500 shop-item-button">
+                      Add to cart
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>
