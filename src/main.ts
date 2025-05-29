@@ -22,9 +22,6 @@ const quantityCount = document.querySelector(
 ) as HTMLDivElement;
 const minusBtn = document.querySelector(".minusButton") as HTMLButtonElement;
 const plusBtn = document.querySelector(".plusButton") as HTMLButtonElement;
-// const itemImage = document.getElementsByClassName("item-image");
-
-// const addToCartButtom = document.getElementsByClassName("shop-item-button");
 
 imageProduct1?.addEventListener("click", () => {
   if ((mainImage.src = imageProduct1.src)) {
@@ -43,19 +40,6 @@ imageProduct4?.addEventListener("click", () => {
   mainImage.src = imageProduct4.src;
 });
 
-// window.addEventListener("click", () => {
-//   const mainImage = document.getElementById("main-image");
-//   for (let i = 1; i <= 4; i++) {
-//     const thumb = document.getElementById(`image-product-${i}`);
-//     if (thumb) {
-//       thumb.addEventListener("click", () => {
-//         mainImage.src = thumb.src;
-//       });
-//     }
-//   }
-// });
-
-//quantity
 let count = 1;
 minusBtn?.addEventListener("click", () => {
   if (count > 1) {
@@ -86,7 +70,7 @@ for (let i = 0; i < addToCartButtom.length; i++) {
 function addToCartCLicked(event) {
   let button = event.target;
   let item = button.closest(".item");
-  // let item = button.parentElement.parentElement;
+
   let title = item.getElementsByClassName("item-title")[0]?.innerText;
   let price = item.getElementsByClassName("item-price")[0]?.innerText;
   let quantity = item.getElementsByClassName("quantity-count");
@@ -112,7 +96,7 @@ function addItemToCart(title: itemName, price, mainImage, quantity) {
 
   const cartContent = document.getElementById("cart-content");
 
-  // Remove
+  // Remove the curent text
   const emptyMsg = cartContent.querySelector(".item-cart-content");
   if (emptyMsg) {
     emptyMsg.remove();
