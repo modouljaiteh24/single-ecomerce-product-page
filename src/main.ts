@@ -15,8 +15,8 @@ const imageProduct4 = document.getElementById(
 
 const cartImage = document.getElementById("cart-image");
 const cartContent = document.getElementById("cart-content");
-const itemTitle = document.getElementsByClassName("item-title");
-const itemPrice = document.getElementsByClassName("item-price");
+// const itemTitle = document.getElementsByClassName("item-title");
+// const itemPrice = document.getElementsByClassName("item-price");
 const quantityCount = document.querySelector(
   ".quantity-count"
 ) as HTMLDivElement;
@@ -80,7 +80,7 @@ function addToCartCLicked(event) {
   addItemToCart(title, price, mainImage, quantityCount);
 }
 
-function addItemToCart(title: itemName, price, mainImage, quantity) {
+function addItemToCart(title, price, mainImage) {
   const cartItemContent = `
     <div class="flex items-center gap-4 py-4 border-b border-gray-200">
       <img src="${mainImage}" alt="${title}" class="w-16 h-16 rounded-lg" />
