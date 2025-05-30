@@ -1,17 +1,6 @@
 const mainImage = document.getElementById("main-image") as HTMLImageElement;
 
-const imageProduct1 = document.getElementById(
-  "image-product-1"
-) as HTMLImageElement;
-const imageProduct2 = document.getElementById(
-  "image-product-2"
-) as HTMLImageElement;
-const imageProduct3 = document.getElementById(
-  "image-product-3"
-) as HTMLImageElement;
-const imageProduct4 = document.getElementById(
-  "image-product-4"
-) as HTMLImageElement;
+const thumbnails = document.querySelectorAll(".thumbnail");
 
 const cartImage = document.getElementById("cart-image");
 const cartContent = document.getElementById("cart-content");
@@ -20,31 +9,27 @@ const cartContent = document.getElementById("cart-content");
 const quantityCount = document.querySelector(
   ".quantity-count"
 ) as HTMLDivElement;
+
 const minusBtn = document.querySelector(".minusButton") as HTMLButtonElement;
 const plusBtn = document.querySelector(".plusButton") as HTMLButtonElement;
 
-imageProduct1?.addEventListener("click", () => {
-  if ((mainImage.src = imageProduct1.src)) {
-  }
-});
+const originalSrc = mainImage.src; // Store the original image
 
-imageProduct2?.addEventListener("click", () => {
-  mainImage.src = imageProduct2.src;
-});
+thumbnails.forEach((thumbnail) => {
+  thumbnail.addEventListener("mouseover", () => {
+    mainImage.src = thumbnail.src;
+  });
 
-imageProduct3?.addEventListener("click", () => {
-  mainImage.src = imageProduct3.src;
-});
-
-imageProduct4?.addEventListener("click", () => {
-  mainImage.src = imageProduct4.src;
+  thumbnail.addEventListener("mouseout", () => {
+    mainImage.src = originalSrc;
+  });
 });
 
 let count = 1;
 minusBtn?.addEventListener("click", () => {
   if (count > 1) {
     count--;
-    quantistyCount.innerText = count;
+    quantityCount.innerText = count;
   }
 });
 
