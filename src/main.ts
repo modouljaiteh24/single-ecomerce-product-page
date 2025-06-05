@@ -25,7 +25,7 @@ thumbnails.forEach((thumbnail) => {
   });
 });
 
-let count = 1;
+let count: any = 1;
 minusBtn?.addEventListener("click", () => {
   if (count > 1) {
     count--;
@@ -52,20 +52,27 @@ for (let i = 0; i < addToCartButtom.length; i++) {
   button.addEventListener("click", addToCartCLicked);
 }
 
-function addToCartCLicked(event) {
+function addToCartCLicked(event: any) {
   let button = event.target;
   let item = button.closest(".item");
 
   let title = item.getElementsByClassName("item-title")[0]?.innerText;
   let price = item.getElementsByClassName("item-price")[0]?.innerText;
-  let quantity = item.getElementsByClassName("quantity-count");
+  // let quantity = item.getElementsByClassName(
+  //   "quantity-count"
+  // ) as HTMLSpanElement;
   const mainImage = document.getElementsByClassName("main-image")[0]?.src;
   // console.log(mainImage);
   console.log(title, price, mainImage, quantityCount);
-  addItemToCart(title, price, mainImage, quantityCount);
+  addItemToCart(title, price, mainImage);
+  // alert("Added to Cart");
+  // if (addItemToCart) {
+  //   alert("Added to Cart");
+  //   // return addItemToCart;
+  // }
 }
 
-function addItemToCart(title, price, mainImage) {
+function addItemToCart(title: string, price: number, mainImage: ImageData) {
   const cartItemContent = `
     <div class="flex items-center gap-4 py-4 border-b border-gray-200">
       <img src="${mainImage}" alt="${title}" class="w-16 h-16 rounded-lg" />
@@ -79,7 +86,7 @@ function addItemToCart(title, price, mainImage) {
     </div>
   `;
 
-  const cartContent = document.getElementById("cart-content");
+  const cartContent = document.getElementById("cart-content") as HTMLElement;
 
   // Remove the curent text
   const emptyMsg = cartContent.querySelector(".item-cart-content");
