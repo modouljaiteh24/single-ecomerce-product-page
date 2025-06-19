@@ -12,7 +12,7 @@ const quantityCount = document.querySelector(
 
 const hambuger = document.getElementById("hambuger");
 const hambugarContent = document.getElementById("hambugarContent");
-const menuClose = document.getElementById("menuClose");
+// const menuClose = document.getElementById("menuClose");
 
 const minusBtn = document.querySelector(".minusButton") as HTMLButtonElement;
 const plusBtn = document.querySelector(".plusButton") as HTMLButtonElement;
