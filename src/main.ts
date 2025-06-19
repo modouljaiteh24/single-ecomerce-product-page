@@ -75,7 +75,7 @@ function addToCartCLicked(event: any) {
   // let quantity = item.getElementsByClassName(
   //   "quantity-count"
   // ) as HTMLSpanElement;
-  const mainImage = document.getElementsByClassName("main-image")[0]?.src;
+  const mainImage = document.getElementsByClassName("main-image")[0]?.innerHTML;
   // console.log(mainImage);
   console.log(title, price, mainImage, quantityCount);
   addItemToCart(title, price, mainImage);
