@@ -39,17 +39,17 @@ hambuger?.addEventListener("click", () => {
   }
 });
 
-let count: any = 1;
+let count: number = 1;
 minusBtn?.addEventListener("click", () => {
   if (count > 1) {
     count--;
-    quantityCount.innerText = count;
+    quantityCount.innerText = count.toString();
   }
 });
 
 plusBtn?.addEventListener("click", () => {
   count++;
-  quantityCount.innerText = count;
+  quantityCount.innerText = count.toString();
 });
 
 //cart-content
@@ -87,7 +87,7 @@ function addItemToCart(title: string, price: number, mainImage: string) {
   const quantityItem = document.getElementById("quantity") as HTMLSpanElement;
 
   if (quantityItem) {
-    quantityItem.innerText = count;
+    quantityItem.innerText = count.toString();
   }
 
   const existingItems = cartContent.getElementsByClassName("cart-item");
@@ -98,7 +98,15 @@ function addItemToCart(title: string, price: number, mainImage: string) {
       return;
     }
   }
-  const totalPrice = price * count;
+
+  //Total count
+  const cleanedPrice = price.toString().replace(/[^0-9.]/g, "");
+  const numericPrice = Number(cleanedPrice);
+  const totalPrice = (numericPrice * count).toFixed();
+
+  console.log("Cleaned Price:", cleanedPrice);
+  console.log("Numeric Price:", numericPrice);
+  console.log("Total Price:", totalPrice);
 
   // Create container for cart item
   const cartItem = document.createElement("div");
@@ -111,7 +119,7 @@ function addItemToCart(title: string, price: number, mainImage: string) {
         <p class="text-sm text-gray-600">
           ${price} x ${count}
         </p>
-         <span class="font-bold text-black">Total: ${totalPrice}</span>
+         <span class="font-bold text-black">Total: $${totalPrice}</span>
          
        
       </div>
