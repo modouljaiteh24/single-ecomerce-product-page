@@ -2,7 +2,11 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="./public/assets/images/image-avatar.png"
+    />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./src/style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -13,66 +17,99 @@
     />
     <script type="module" src="./src/main.ts" async></script>
 
-    <title>Vite + TS</title>
+    <title>Product Pages</title>
   </head>
-  <body class="md:container md:m-auto md:p-6">
+  <body class="md:container md:m-auto md:p-6 p-3 relative">
     <div>
       <header>
         <div class="md:flex items-center justify-between px-6 py-4 relative">
           <!-- Left Side: Logo + Nav -->
           <div class="md:flex items-center gap-[3rem]">
-            <div class="flex justify-between items-center">
-              <div class="flex items-center gap-4">
-                <div class="md:hidden">
-                  <img src="./public/assets/images/icon-menu.svg" alt="" />
-                </div>
-                <div>
-                  <img
-                    src="./public/assets/images/logo.svg"
-                    alt="Logo"
-                    class="w-32"
-                  />
-                </div>
-              </div>
-
-              <!-- Phone Right Side: Cart Icon -->
-              <div class="block md:hidden">
-                <div class="flex items-center gap-8">
-                  <div class="relative">
-                    <div
-                      class="absolute -top-3 left-4 w-5 h-5 bg-orange-500 flex justify-center items-center rounded-full text-white"
-                    >
-                      <span class="quantity">3</span>
-                    </div>
-                    <div class="cursor-pointer w-[]">
-                      <img
-                        width=""
-                        src="./public/assets/images/icon-cart.svg"
-                        alt="Cart"
-                        class="w-6"
-                      />
-                    </div>
-                  </div>
-                  <div class="cursor-pointer">
+            <div class="flex md:justify-between items-center">
+              <div class="flex items-center md:gap-4 gap-[6rem]">
+                <div class="flex items-center gap-3">
+                  <div id="hambuger" class="md:hidden">
                     <img
-                      class="hover:border-1 hover:border-orange-500 rounded-full"
-                      width="35"
-                      src="./public/assets/images/image-avatar.png"
+                      id="menuOpen"
+                      src="./public/assets/images/icon-menu.svg"
                       alt=""
                     />
+                    <img
+                      id="menuClose"
+                      class="hidden"
+                      src="./public/assets/images/icon-close.svg"
+                      alt=""
+                    />
+                  </div>
+                  <div>
+                    <img
+                      src="./public/assets/images/logo.svg"
+                      alt="Logo"
+                      class="w-40"
+                    />
+                  </div>
+                </div>
+
+                <!-- / Phone-->
+                <div>
+                  <div class="flex items-center md:gap-10 md:hidden gap-6">
+                    <div class="relative">
+                      <div
+                        class="absolute -top-3 left-4 w-5 h-5 bg-orange-500 flex justify-center items-center rounded-full text-white"
+                      >
+                        <span class="quantity" id="quantity">0</span>
+                      </div>
+                      <div id="cart-image" class="cursor-pointer w-[]">
+                        <img
+                          id=""
+                          draggable="false"
+                          width=""
+                          src="./public/assets/images/icon-cart.svg"
+                          alt="Cart"
+                          class="w-6"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      id="cart-content"
+                      class="show cart-contentmax-h-96 overflow-y-auto absolute right-[2px] md:top-[5rem] top-[4rem] z-10 p-4 bg-white md:w-[30%] h-[15rem] w-[100%] shadow-lg rounded-2xl menu-content transition-all transition-discrete"
+                    >
+                      <div>
+                        <h3>Cart</h3>
+                      </div>
+                      <div class="mt-[1rem]">
+                        <div class="border-1 border-gray-200"></div>
+                        <div class="text-center pt-[4rem] item-cart-content">
+                          <p class="text-gray-400 emptyMessage">
+                            Your cart is empty.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="cursor-pointer">
+                      <img
+                        draggable="false"
+                        class="hover:border-1 hover:border-orange-500 rounded-full"
+                        width="35"
+                        src="./public/assets/images/image-avatar.png"
+                        alt=""
+                      />
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-            <!-- Logo -->
 
             <!-- Navigation Links -->
-            <nav>
-              <ul class="md:flex gap-6 text-gray-500">
+            <nav class="mt-[2rem] mb-[1rem] md:mb-0 md:mt-0">
+              <ul
+                id="hambugarContent"
+                class="md:flex gap-6 hidden text-gray-500 mt-[1rem] md:mt-0 space-y-[2rem] md:space-y-0 bg-gray-200 md:bg-white p-[2rem] rounded-2xl transition-all transition-discrete"
+              >
                 <li class="">
                   <a href="#">Collections</a>
                 </li>
-                <li><a href="#">Mens</a></li>
+                <li class="h hover:text-orange-500"><a href="#">Mens</a></li>
                 <li><a href="#">Women</a></li>
                 <li><a href="#">About</a></li>
                 <li><a href="#">Contact</a></li>
@@ -87,7 +124,7 @@
                 <div
                   class="absolute -top-3 left-4 w-5 h-5 bg-orange-500 flex justify-center items-center rounded-full text-white"
                 >
-                  <span class="quantity">1</span>
+                  <span class="quantity" id="quantity">0</span>
                 </div>
                 <div id="cart-image" class="cursor-pointer w-[]">
                   <img
@@ -100,9 +137,10 @@
                   />
                 </div>
               </div>
+
               <div
                 id="cart-content"
-                class="show cart-contentmax-h-96 overflow-y-auto absolute right-3 top-[5rem] z-10 p-4 bg-white md:w-[30%] h-[15rem] w-[100%] shadow-lg rounded-2xl menu-content transition-all transition-discrete"
+                class="show sticky cart-contentmax-h-96 overflow-y-auto right-3 md:top-[5rem] mt-[5rem] z-10 p-4 bg-white md:w-[30%] h-[15rem] w-[100%] shadow-lg rounded-2xl menu-content transition-all transition-discrete"
               >
                 <div>
                   <h3>Cart</h3>
@@ -110,7 +148,9 @@
                 <div class="mt-[1rem]">
                   <div class="border-1 border-gray-200"></div>
                   <div class="text-center pt-[4rem] item-cart-content">
-                    <p class="text-gray-400">Your cart is empty.</p>
+                    <p class="text-gray-400 emptyMessage">
+                      Your cart is empty.
+                    </p>
                   </div>
                 </div>
               </div>
@@ -127,25 +167,26 @@
           </div>
         </div>
         <div class="px-6 mt-[1.5rem]">
-          <div class="border-b-1 border-gray-300"></div>
+          <!-- border -->
+          <div class="border-b-1 border-gray-300 hidden md:block"></div>
         </div>
       </header>
 
       <main>
-        <section class="mt-[5rem] md:px-[6rem] relative">
+        <section class="md:mt-[6rem] md:px-[6rem] relative">
           <div class="md:grid md:grid-cols-2 md:gap-[3rem]">
             <div class="item">
               <div class="w-[100%] flex justify-center">
                 <img
                   draggable="false"
                   id="main-image"
-                  class="main-image md:w-[90%] h-[] md:rounded-2xl"
+                  class="main-image md:w-[90%] h-[] md:rounded-2xl rounded-2xl"
                   src="./public/assets/images/image-product-1.jpg"
                   alt=""
                 />
               </div>
 
-              <div id="" class="flex w-[18%] gap-6 ml-8 mt-6">
+              <div id="" class="flex w-[18%] gap-6 md:ml-8 mt-6">
                 <img
                   draggable="false"
                   id="image-product-1"
@@ -223,7 +264,7 @@
             <!--  -->
             <div class="item w-[100%] mt-[3rem] p-6">
               <p class="uppercase text-gray-500">Sneaker Company</p>
-              <h2 class="item-title mt-[10px] text-[2.5rem] leading-12">
+              <h2 class="item-title mt-[10px] text-[2rem] leading-12">
                 Fall Limited Edition <br />
                 Sneakers
               </h2>
@@ -242,10 +283,12 @@
                     &dollar;250.00
                   </p>
                 </div>
-                <div class="mt-[2rem] md:flex gap-x-[2rem] items-center">
+                <div
+                  class="mt-[2rem] md:flex gap-x-[2rem] items-center space-y-[2rem] md:space-y-0"
+                >
                   <!-- product qty -->
                   <div
-                    class="flex space-x-10 bg-gray-100 p-4 rounded-[10px] w-[] font-bold"
+                    class="flex justify-between space-x-10 bg-gray-100 p-4 rounded-[10px] w-[] font-bold"
                   >
                     <button class="text-orange-500 minusButton">
                       <img
@@ -264,14 +307,16 @@
                     </button>
                   </div>
                   <div
-                    class="shop-item-button flex gap-3 bg-orange-500 hover:bg-orange-400 px-[4rem] p-4 rounded-[10px]"
+                    class="shop-item-button flex justify-center gap-3 bg-orange-500 hover:bg-orange-400 px-[4rem] p-4 rounded-[10px]"
                   >
                     <img
                       draggable="false"
                       src="./public/assets/images/icon-cart.svg"
                       alt=""
                     />
-                    <button class="text-gray-500">Add to cart</button>
+                    <button class="text-gray-500/ text-white">
+                      Add to cart
+                    </button>
                   </div>
                 </div>
               </div>

@@ -1,6 +1,6 @@
 const mainImage = document.getElementById("main-image") as HTMLImageElement;
 
-const thumbnails = document.querySelectorAll(".thumbnail");
+const thumbnails = document.querySelectorAll(".thumbnail") as any;
 
 const cartImage = document.getElementById("cart-image");
 const cartContent = document.getElementById("cart-content");
@@ -10,19 +10,35 @@ const quantityCount = document.querySelector(
   ".quantity-count"
 ) as HTMLDivElement;
 
+const hambuger = document.getElementById("hambuger");
+const hambugarContent = document.getElementById("hambugarContent");
+const menuClose = document.getElementById("menuClose");
+
 const minusBtn = document.querySelector(".minusButton") as HTMLButtonElement;
 const plusBtn = document.querySelector(".plusButton") as HTMLButtonElement;
 
 const originalSrc = mainImage.src; // Store the original image
 
-thumbnails.forEach((thumbnail) => {
+thumbnails.forEach((thumbnail: any) => {
   thumbnail.addEventListener("mouseover", () => {
     mainImage.src = thumbnail.src;
+    // thumbnail.
   });
 
   thumbnail.addEventListener("mouseout", () => {
     mainImage.src = originalSrc;
   });
+});
+
+//menu
+hambuger?.addEventListener("click", () => {
+  // alert("Cliked");
+  if (hambugarContent) {
+    hambugarContent?.classList.toggle("hidden");
+    // menuClose?.classList.remove("hidden");
+  } else {
+    hambugarContent?.classList.toggle("hidden");
+  }
 });
 
 let count: any = 1;
@@ -65,35 +81,94 @@ function addToCartCLicked(event: any) {
   // console.log(mainImage);
   console.log(title, price, mainImage, quantityCount);
   addItemToCart(title, price, mainImage);
-  // alert("Added to Cart");
-  // if (addItemToCart) {
-  //   alert("Added to Cart");
-  //   // return addItemToCart;
-  // }
 }
 
-function addItemToCart(title: string, price: number, mainImage: ImageData) {
-  const cartItemContent = `
+function addItemToCart(title: string, price: number, mainImage: string) {
+  const cartContent = document.getElementById("cart-content") as HTMLElement;
+  //quantity
+  const quantityItem = document.getElementById("quantity") as HTMLSpanElement;
+
+  if (quantityItem) {
+    quantityItem.innerText = count;
+  }
+
+  const existingItems = cartContent.getElementsByClassName("cart-item");
+  for (let i = 0; i < existingItems.length; i++) {
+    const itemTitle = existingItems[i].querySelector("p")?.textContent?.trim();
+    if (itemTitle === title) {
+      alert("Item already in cart!");
+      return;
+    }
+  }
+  const totalPrice = price * count;
+
+  // Create container for cart item
+  const cartItem = document.createElement("div");
+  cartItem.classList.add("cart-item");
+  cartItem.innerHTML = `
     <div class="flex items-center gap-4 py-4 border-b border-gray-200">
       <img src="${mainImage}" alt="${title}" class="w-16 h-16 rounded-lg" />
       <div class="text-left">
         <p class="text-sm text-gray-800 font-semibold">${title}</p>
         <p class="text-sm text-gray-600">
-          ${price} x 3 <span class="font-bold text-black">${price}</span>
+          ${price} x ${count}
         </p>
+         <span class="font-bold text-black">Total: ${totalPrice}</span>
+         
+       
       </div>
       <button class="ml-auto text-red-500 hover:text-red-700 delete-btn">🗑️</button>
     </div>
+    <div class="shop-item-button flex justify-center gap-3 bg-orange-500 hover:bg-orange-400 px-[4rem] p-4 rounded-[10px]">
+      <img draggable="false" src="./public/assets/images/icon-cart.svg" alt="" />
+          <button class="text-gray-500">Checkout</button>
+    </div>
   `;
 
-  const cartContent = document.getElementById("cart-content") as HTMLElement;
+  //emty message
 
-  // Remove the curent text
+  // const emptyMessage = document.getElementsByClassName("emptyMessage");
+
+  // Remove placeholder/empty message
   const emptyMsg = cartContent.querySelector(".item-cart-content");
   if (emptyMsg) {
     emptyMsg.remove();
+  } else {
   }
 
-  // Append the new item
-  cartContent.innerHTML += cartItemContent;
+  // Add the new cart item to the cart
+  cartContent.appendChild(cartItem);
+
+  // Attach delete functionality to this specific button
+  const deleteBtn = cartItem.querySelector(".delete-btn") as HTMLElement;
+  deleteBtn.addEventListener("click", () => {
+    cartItem.remove();
+
+    if (cartContent.querySelectorAll(".cart-item").length === 0) {
+      count = count; // Reset
+      if (quantityItem) {
+        quantityItem.innerText = "0";
+      }
+
+      // Optional: Show "cart is empty" message when no items left
+      // quantityItem.innerText.length === 1;
+      // const emptyMessage = document.createElement("p");
+      // emptyMessage.classList.add("emptyMessage");
+      // emptyMessage.innerHTML = `
+      // <p class="text-gray-400 emptyMessage">
+      //   Your cart is empty.
+      // </p>
+      // `;
+
+      // cartContent.appendChild(emptyMessage);
+
+      const emptyText = document.createElement("p");
+      emptyText.className =
+        "item-cart-content text-gray-500 text-center pt-[4rem] text-gray-400";
+      emptyText.innerText = "Your cart is empty.";
+      cartContent.appendChild(emptyText);
+    }
+  });
+
+  //Local storage
 }
