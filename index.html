@@ -15,6 +15,9 @@
       href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100..900&display=swap"
       rel="stylesheet"
     />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
     <script type="module" src="./src/main.ts" async></script>
 
     <title>Product Pages</title>
@@ -42,11 +45,13 @@
                     />
                   </div>
                   <div>
-                    <img
-                      src="./public/assets/images/logo.svg"
-                      alt="Logo"
-                      class="w-40"
-                    />
+                    <a href=""
+                      ><img
+                        title="logo"
+                        src="./public/assets/images/logo.svg"
+                        alt="Logo"
+                        class="w-40"
+                    /></a>
                   </div>
                 </div>
 
@@ -174,7 +179,7 @@
 
       <main>
         <section class="md:mt-[6rem] md:px-[6rem] relative">
-          <div class="md:grid md:grid-cols-2 md:gap-[3rem]">
+          <div data-aos="fade-up" class="md:grid md:grid-cols-2 md:gap-[3rem]">
             <div class="item">
               <div class="w-[100%] flex justify-center">
                 <img
@@ -325,5 +330,8 @@
         </section>
       </main>
     </div>
+    <script>
+      AOS.init();
+    </script>
   </body>
 </html>
